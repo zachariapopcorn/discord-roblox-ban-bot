@@ -6,13 +6,11 @@ const client = new Discord.Client();
 const app = express();
 
 app.get(`/${process.env.subURLForGettingBans}`, async (request, response) => {
-     if(request.method !== "GET") return response.sendStatus(400);
      let bans = await db.get("bans") || [];
      response.send(bans);
 });
 
 app.get("/get-username-from-id", async (request, response) => {
-     if(request.method !== "GET") return response.sendStatus(400);
      let id = request.query.id;
      response.send(await roblox.getUsernameFromId(id));
 });
