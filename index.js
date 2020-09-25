@@ -1,9 +1,14 @@
 const express = require('express');
 const Discord = require('discord.js');
 const roblox = require('noblox.js');
+const got = require('got');
 const db = require('./db.js');
 const client = new Discord.Client();
 const app = express();
+
+setInterval(function() {
+  got("DIRECT GLITCH URL");
+}, 240000);
 
 app.get(`/${process.env.subURLForGettingBans}`, async (request, response) => {
      let bans = await db.get("bans") || [];
