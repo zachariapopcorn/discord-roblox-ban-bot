@@ -10,6 +10,10 @@ setInterval(function() {
   got("DIRECT GLITCH URL");
 }, 240000);
 
+app.get(`/`, async (request, response) => {
+     response.sendStatus(200);
+});
+
 app.get(`/${process.env.subURLForGettingBans}`, async (request, response) => {
      let bans = await db.get("bans") || [];
      response.send(bans);
